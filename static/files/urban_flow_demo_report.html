@@ -1,0 +1,63 @@
+
+            <html>
+            <head>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 40px; }
+                    h1 { color: #2c3e50; }
+                    h2 { color: #34495e; margin-top: 30px; }
+                    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    th { background-color: #f5f6fa; }
+                    .summary { background-color: #f8f9fa; padding: 20px; border-radius: 5px; }
+                </style>
+            </head>
+            <body>
+                <h1>交通流量分析报告</h1>
+                <p>生成时间：2025-02-17 13:04:12</p>
+                
+                <h2>1. 交通流量高峰时刻分析</h2>
+                <p>统计各网格达到最大流量的时刻分布（前10个时间点）：</p>
+                <table>
+                    <tr>
+                        <th>时刻</th>
+                        <th>网格数量</th>
+                        <th>占比(%)</th>
+                    </tr>
+                    <tr><td>07:40</td><td>773</td><td>16.23</td></tr><tr><td>07:50</td><td>700</td><td>14.69</td></tr><tr><td>08:10</td><td>641</td><td>13.46</td></tr><tr><td>08:20</td><td>532</td><td>11.17</td></tr><tr><td>08:00</td><td>523</td><td>10.98</td></tr><tr><td>07:30</td><td>483</td><td>10.14</td></tr><tr><td>07:20</td><td>243</td><td>5.1</td></tr><tr><td>08:30</td><td>218</td><td>4.58</td></tr><tr><td>08:40</td><td>163</td><td>3.42</td></tr><tr><td>08:50</td><td>153</td><td>3.21</td></tr>
+                </table>
+                
+                <h2>2. 主要拥堵空间分析</h2>
+                <p>前10个主要拥堵网格：</p>
+                <table>
+                    <tr>
+                        <th>net_id</th>
+                        <th>出现次数</th>
+                        <th>出现频率(%)</th>
+                    </tr>
+                    <tr><td>2436.0</td><td>24.0</td><td>100.0</td></tr><tr><td>2438.0</td><td>24.0</td><td>100.0</td></tr><tr><td>3219.0</td><td>24.0</td><td>100.0</td></tr><tr><td>3323.0</td><td>24.0</td><td>100.0</td></tr><tr><td>3897.0</td><td>24.0</td><td>100.0</td></tr><tr><td>3912.0</td><td>24.0</td><td>100.0</td></tr><tr><td>3963.0</td><td>24.0</td><td>100.0</td></tr><tr><td>3970.0</td><td>24.0</td><td>100.0</td></tr><tr><td>4453.0</td><td>24.0</td><td>100.0</td></tr><tr><td>4473.0</td><td>24.0</td><td>100.0</td></tr>
+                </table>
+                
+                <h2>3. 主要拥堵源分析</h2>
+                <p>前10个主要拥堵源（就业中心）：</p>
+                <table>
+                    <tr>
+                        <th>就业中心</th>
+                        <th>出现次数</th>
+                        <th>出现频率(%)</th>
+                    </tr>
+                    <tr><td>南京路商务区</td><td>3439</td><td>75.02</td></tr><tr><td>陆家嘴金融贸易区</td><td>2927</td><td>63.85</td></tr><tr><td>漕河泾工业园区</td><td>2721</td><td>59.36</td></tr><tr><td>张江高科技园区</td><td>2383</td><td>51.99</td></tr><tr><td>五角场</td><td>1445</td><td>31.52</td></tr><tr><td>协和路</td><td>1289</td><td>28.12</td></tr><tr><td>金桥出口加工区</td><td>1182</td><td>25.79</td></tr><tr><td>虹桥商务区</td><td>1015</td><td>22.14</td></tr><tr><td>大柏树</td><td>718</td><td>15.66</td></tr><tr><td>莘庄工业区</td><td>629</td><td>13.72</td></tr>
+                </table>
+                
+                <h2>4. 分析结论</h2>
+                <div class="summary">
+                    <p>1. 交通流量分析显示，07:40是最主要的高峰时刻，
+                    有773个网格（占比16.23%）
+                    在此时达到最大流量。</p>
+                    <p>2. 在识别的拥堵空间中，网格2436.0
+                    的拥堵频率最高，达到100.0%。</p>
+                    <p>3. 就业中心南京路商务区是最主要的拥堵源，
+                    出现频率为75.02%。</p>
+                </div>
+            </body>
+            </html>
+            

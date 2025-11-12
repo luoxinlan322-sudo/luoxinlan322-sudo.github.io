@@ -1,0 +1,111 @@
+baseURL = "https://luoxinlan322-sudo.github.io/"
+title = "罗歆兰"
+theme = "hugo-coder"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+
+buildDrafts = false
+buildFuture = true
+buildExpired = false
+
+
+[pagination]
+pagerSize = 20
+
+[params]
+colorScheme = "auto"
+customCSS = ["css/typography.v7.css"]
+mainSections = ["projects", "posts"]
+
+# 允许 Markdown 中渲染原生 HTML（否则你的 <div class="cv"> 会被当作文本）
+[markup]
+[markup.goldmark]
+    [markup.goldmark.renderer]
+    unsafe = true
+
+[[params.social]]
+  name = "GitHub"
+  icon = "fa-brands fa-github"
+  url  = "https://github.com/luoxinlan322-sudo"
+  weight = 10
+
+[[params.social]]
+  name = "LinkedIn"
+  icon = "fa-brands fa-linkedin"
+  url  = "https://www.linkedin.com/in/歆兰-罗-268a3138b"
+  weight = 10
+
+[[params.social]]
+  name = "Gmail"
+  icon = "fa-regular fa-envelope"
+  url  = "mailto:luoxinlan322@gmail.com"
+  weight = 10
+
+[[params.social]]
+  name = "Xiaohongshu"
+  icon = "fa-solid fa-book"
+  url  = "https://www.xiaohongshu.com/user/profile/5c064b1a0000000007008f52"
+  iconSVG = "icons/xhs_black.svg?v=1"
+  weight = 10
+
+[[params.social]]
+  name = "YouTube"
+  icon = "fa-brands fa-youtube"
+  url  = "https://www.youtube.com/channel/UCPAgZAesIccxQmRA6OkBaGQ"
+  weight = 10
+
+
+[languages]
+
+      [languages.zh-cn]
+        languageName = "中文"
+        weight = 1
+        title = "罗歆兰 | 个人主页"
+        [languages.zh-cn.params]
+          author = "罗歆兰"
+          info = """
+行为 · 城市 · AI Agent
+空间系统建模与智能模拟
+"""
+          # description = "城市空间行为、ABM、RL、LLM"
+          avatarURL = "images/avatar.jpg"
+        [[languages.zh-cn.menu.main]]
+          name = "项目"
+          url  = "/projects/"
+          weight = 1
+        [[languages.zh-cn.menu.main]]
+          name = "简历"
+          url  = "/resume/"
+          weight = 2
+        [[languages.zh-cn.menu.main]]
+          name = "关于"
+          url  = "/about/"
+          weight = 3
+
+      [languages.en]
+        languageName = "EN"
+        weight = 2
+        title = "Xinlan Luo | Home"
+        [languages.en.params]
+          author = "Xinlan Luo"
+          info = """
+Behavior · Cities · AI Agents
+Spatial System Modeling & Simulation
+"""
+          description = "Spatial behavior, ABM, RL, LLM"
+          avatarURL = "images/avatar.jpg"
+        [[languages.en.menu.main]]
+          name = "Projects"
+          url  = "/projects/"
+          weight = 1
+        [[languages.en.menu.main]]
+          name = "Resume"
+          url  = "/resume/"
+          weight = 2
+        [[languages.en.menu.main]]
+          name = "About"
+          url  = "/about/"
+          weight = 3
+

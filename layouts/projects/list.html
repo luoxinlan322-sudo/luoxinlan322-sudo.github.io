@@ -1,0 +1,38 @@
+{{ define "main" }}
+<!-- DEBUG: using ROOT layouts/projects/list.html -->
+<main class="content list" style="padding:16px 0">
+  <header class="page-header"><h1>{{ .Title }}</h1></header>
+
+  <div style="opacity:.7; font-family:ui-monospace,Consolas">
+    <p>DEBUG .Lang = <b>{{ .Lang }}</b> · .Language.Lang = <b>{{ .Language.Lang }}</b></p>
+    <p>DEBUG count(all projects, any lang) = 
+      <b>{{ len (where .Site.RegularPages "Section" "projects") }}</b></p>
+    {{ $all := where .Site.RegularPages "Section" "projects" }}
+    {{ $same := where $all "Lang" .Language.Lang }}
+    <p>DEBUG count(projects same-lang) = <b>{{ len $same }}</b></p>
+    <p>DEBUG languages in site = 
+      {{ range .Site.Languages }}[{{ .Lang }}]{{ end }}
+    </p>
+  </div>
+
+  {{ $p := .Paginate ($same.ByDate.Reverse) }}
+  {{ if gt (len $p.Pages) 0 }}
+    <ul class="archive">
+      {{ range $p.Pages }}
+        <li class="post-item">
+          <a href="{{ .RelPermalink }}">
+            <span class="post-title">{{ .Title }}</span>
+            <span class="post-meta">
+              {{ .Date.Format "2006-01-02" }}
+              {{ with .Params.tags }} · {{ delimit . ", " }}{{ end }}
+            </span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+    {{ partial "pagination.html" . }}
+  {{ else }}
+    <p style="opacity:.7"><b>DEBUG</b>: same-lang empty → 未找到当前语言的项目。</p>
+  {{ end }}
+</main>
+{{ end }}

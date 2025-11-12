@@ -1,0 +1,498 @@
+/* Web fonts (cdn=google) */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap");
+
+/* 自托管时改用 @font-face：
+@font-face{font-family:"Inter";src:url("/fonts/Inter-Variable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:"Source Serif 4";src:url("/fonts/SourceSerif4Var-Roman.woff2") format("woff2");font-weight:300 800;font-style:normal;font-display:swap;}
+@font-face{font-family:"Noto Serif SC";src:url("/fonts/NotoSerifSC-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
+*/
+
+:root{
+  --font-en-sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+  --font-en-serif:"Source Serif 4","Iowan Old Style","Palatino Linotype","Palatino","URW Palladio L",serif;
+  --font-zh-serif:"Source Han Serif SC","Noto Serif CJK SC","Noto Serif SC","Songti SC","SimSun",serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,"JetBrains Mono",Consolas,"Liberation Mono","Courier New",monospace;
+
+  --max-text-width: 72ch;
+  --line-height: 1.7;
+  --h1-weight: 700;
+  --h2-weight: 650;
+  --h3-weight: 600;
+  --muted: 0.62;
+}
+html{font-feature-settings:"liga","kern","calt","ss01","cv05";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{font-family:var(--font-en-serif),var(--font-zh-serif);font-size:17px;line-height:var(--line-height);max-width:var(--max-text-width);margin:0 auto;padding:0 1.2rem;}
+.container,.content{max-width:100%;}
+.post,.page,.single,.list{max-width:var(--max-text-width);margin:auto;}
+h1,h2,h3,h4{font-family:var(--font-en-sans),var(--font-zh-serif);line-height:1.25;letter-spacing:.2px;}
+h1{font-weight:var(--h1-weight);font-size:clamp(2rem,3vw,2.4rem);margin:1.2em 0 .5em;}
+h2{font-weight:var(--h2-weight);font-size:clamp(1.5rem,2.2vw,1.8rem);margin:1.1em 0 .5em;}
+/* === 让首页副标题 info 按 
+ 换行显示（Coder 多种选择器兜底） === */
+.home-info h2,
+.profile .info,
+.profile .description,
+.home .content .info {
+  white-space: pre-line !important;
+  display: block;
+}
+h3{font-weight:var(--h3-weight);font-size:1.25rem;margin:1em 0 .4em;}
+p,ul,ol{margin:.8em 0;} ul,ol{padding-left:1.2em;}
+a{color:inherit;text-decoration-thickness:.06em;text-underline-offset:.2em;opacity:.92;transition:opacity .15s,text-decoration-color .15s;}
+a:hover{opacity:1;text-decoration-color:currentColor;}
+blockquote{border-left:2px solid color-mix(in srgb,currentColor 35%,transparent);padding:.6em 1em;margin:1em 0;background:color-mix(in srgb,currentColor var(--muted),transparent);border-radius:6px;}
+table{border-collapse:collapse;width:100%;font-size:.98em;}
+th,td{border-bottom:1px solid color-mix(in srgb,currentColor 30%,transparent);padding:.6em .4em;}
+code,kbd,pre{font-family:var(--font-mono);font-size:.95em;}
+pre{background:color-mix(in srgb,currentColor 12%,transparent);padding:.8em 1em;border-radius:8px;overflow:auto;}
+
+/* === 顶部导航：更柔和优雅，和中文标题更搭 === */
+/* Coder 主题常见结构：.navigation / .menu a / .navigation-title */
+.header .navigation a,
+.navigation .menu a,
+.menu a {
+  font-family: var(--font-en-sans), var(--font-zh-serif) !important;
+  font-weight: 500 !important;          /* 比默认更柔，不那么“粗硬” */
+  letter-spacing: 0.2px !important;     /* 轻微字距，英文更清爽 */
+  text-transform: none !important;      /* 避免主题把字母强制大写 */
+  color: inherit !important;
+}
+
+.navigation .menu a {
+  padding: 0 .55rem !important;         /* 菜单项留白更舒适 */
+  opacity: .92;
+  transition: opacity .15s ease, color .15s ease;
+}
+.navigation .menu a:hover {
+  opacity: 1;
+}
+
+/* 导航标题（左上角站点名）更稳重一点 */
+.navigation .navigation-title,
+.site-title {
+  font-family: var(--font-en-sans), var(--font-zh-serif) !important;
+  font-weight: 620 !important;          /* 介于常规与粗体之间 */
+  letter-spacing: .1px !important;
+}
+
+/* === 首页主副标题的中英文协调 === */
+/* 主页一般结构：.home-info 内含 h1(标题)、h2(副标题)、ul(社交) */
+.home-info h1 {
+  font-family: var(--font-en-sans), var(--font-zh-serif) !important;
+  font-weight: 700 !important;          /* 标题仍然醒目 */
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem) !important;
+}
+/* === 首页主标题（你的名字） === */
+.home-info h1,
+.container.centered .about h1 {
+  font-family: var(--font-en-sans), var(--font-zh-serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+
+  /* ← 主标题字号在这里调 */
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem) !important;
+  line-height: 1.22 !important;
+
+  margin-bottom: 0.45em !important;
+}
+/* === 首页副标题（两行换行 + 中英样式区分） === */
+.container.centered .about h2 {
+  white-space: pre-line !important;      /* ✅ 支持 \n 换行 */
+  display: block;
+  line-height: 1.55 !important;
+  margin-top: -0.2em !important;
+  margin-bottom: 0.9em !important;
+}
+/* 英文页面的副标题（你的 “Urban Planning × AI”）去粗体、加字距 */
+body[lang="en"] .home-info h2 {
+  font-family: var(--font-en-serif), var(--font-zh-serif) !important; /* 英文用衬线，和中文更搭 */
+  font-weight: 100 !important;          /* 去粗体，更学术、更优雅 */
+  letter-spacing: 0.3px !important;     /* 英文略加字距可读性更好 */
+  opacity: .92;
+}
+/* 中文页面副标题：保持略重，搭中文气质 */
+body[lang="zh-cn"] .home-info h2 {
+  font-family: var(--font-en-sans), var(--font-zh-serif) !important;
+  font-weight: 100 !important;
+  letter-spacing: 0.15px !important;
+}
+
+
+/* —— 卡片/项目轻交互 —— */
+.post-card,.project-item{
+  border:1px solid color-mix(in srgb,currentColor 18%,transparent);
+  border-radius:12px;
+  padding:1rem;
+  transition:transform .12s,box-shadow .12s,border-color .12s;
+}
+.post-card:hover,.project-item:hover{
+  transform:translateY(-1px);
+  box-shadow:0 4px 18px color-mix(in srgb,currentColor 12%,transparent);
+  border-color:color-mix(in srgb,currentColor 30%,transparent);
+}
+
+/* === 自定义 SVG 图标（iconSVG）统一尺寸 & 纯黑 === */
+.social img.icon-svg,
+.social a svg.icon-svg {
+  width: 3.2rem !important;
+  height: 3.2rem !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 0.55rem !important;
+}
+
+/* === Force FA <i> icons to scale + pure black === */
+ul li a,
+.social a,
+.social-icons a {
+  color:#000 !important;
+  opacity:1 !important;
+}
+
+.social i[class^="fa-"],
+.social i[class*=" fa-"] {
+  font-size:2.9rem !important;
+  line-height:3rem !important;
+  width:3rem !important;
+  height:3rem !important;
+  color:#000 !important;
+  margin:0 0.55rem !important;
+  vertical-align:middle !important;
+  transition:transform .15s ease, opacity .15s ease;
+}
+
+/* Post meta (date / reading time / tags) icon size: smaller */
+.single .post-meta i,
+.post .post-meta i,
+.single .tags i,
+.post .tags i {
+  font-size: .92rem !important;
+  width: 1.1em !important;
+  height: 1.1em !important;
+  line-height: 1.1em !important;
+  margin-right: .35em !important;
+  opacity: .85 !important;
+}
+
+/* meta 行里别把文字也放大 */
+.single .post-meta,
+.post .post-meta,
+.single .tags,
+.post .tags {
+  font-size: .96rem !important;
+}
+
+
+/* === Hover: 不上跳 → 变红 === */
+i[class^="fa-"]:hover,
+i[class*=" fa-"]:hover {
+  transform:none !important;
+  color:#8A1C32 !important;
+  opacity:1 !important;
+}
+
+/* 小红书 SVG hover 同步变红（可选） */
+.social img.icon-svg:hover {
+  filter: invert(8%) sepia(92%) saturate(3600%) hue-rotate(-8deg) brightness(90%) contrast(112%) !important;
+}
+
+/* 轻微按压感（80ms），不“跳”，更像原生 App */
+.social .list-inline-item a:active i[class^="fa-"],
+.social .list-inline-item a:active i[class*=" fa-"],
+.social .list-inline-item a:active img.icon-svg {
+  transform: scale(.98);
+  transition: transform 80ms ease;
+}
+
+/* ========= 简历页核心排版（统一字体层级 + 整体加宽 + 左右布局稳） ========= */
+
+/* 页面主体加宽 */
+.cv-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-size: 18px;
+  line-height: 1.72;
+}
+.cv-page .post,
+.cv-page .page,
+.cv-page .single,
+.cv-page .list,
+.cv-page .content {
+  max-width: 100% !important;
+}
+
+/* 区块容器加宽 */
+.cv-wide {
+  max-width: min(1400px, 96vw);
+  margin: 0 auto;
+}
+
+/* ========== 字号层级（你要的优先顺序） ========== */
+/* 1) 区块标题：最大（Education / Experience / Publications / Skills） */
+.cv-page h2,
+.cv-page .cv-h2 {
+  font-size: 3rem;
+  font-weight: 750;
+  margin: 1.1em 0 .6em;
+  font-family: var(--font-en-sans), var(--font-zh-serif);
+}
+
+/* 2) 项目标题（org — role），中号且加粗 */
+.cv-page .cv-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 .25rem;
+}
+
+/* 3) 正文内容（detail、bullets、技能条目等）：最小 */
+.cv-page .cv-body,
+.cv-page .cv-body p,
+.cv-page .cv-sub,
+.cv-page .cv-bullets,
+.cv-page .cv-bullets li,
+.cv-page .cv-list,
+.cv-page .cv-list li {
+  font-size: 1.5rem;
+  line-height: 1.65;
+}
+
+/* 左侧时间/地点与正文同级、同大小 */
+.cv-page .cv-meta,
+.cv-page .cv-period,
+.cv-page .cv-place {
+  font-size: 1.5rem;
+  line-height: 1.65;
+  color: color-mix(in srgb,currentColor 80%,transparent);
+}
+
+.cv-role {
+  font-weight: 500;     /* 比 org 弱一点 */
+  opacity: .85;
+}
+/* ========== 两栏主栅格（左：时间，右：正文） ========== */
+.cv-row {
+  display: grid;
+  grid-template-columns: 100px minmax(0,1fr); /* ← 左列略缩短，正文更宽 */
+  column-gap: 28px;
+  padding: 14px 0;
+  border-top: 1px solid color-mix(in srgb,currentColor 18%,transparent);
+}
+.cv-row:first-of-type { border-top: 0; }
+
+/* ========== 发表 / 技能 两栏对齐 + 有分点 ========= */
+.cv-col-2 {
+  column-count: 2;
+  column-gap: 2.2rem;
+  column-fill: balance;
+}
+.cv-list {
+  list-style: disc;
+  list-style-position: outside;
+  margin: .2rem 0;
+  padding-left: 1.2rem;
+}
+.cv-list li {
+  break-inside: avoid;
+  margin-bottom: .35rem;
+}
+
+/* 仅用于“技能/发表”的单栏小圆点列表 */
+.cv-dots {
+  list-style: none;           /* 去掉默认圆点 */
+  padding-left: 1.1rem;       /* 留出自定义圆点位置 */
+  margin: .2rem 0;
+}
+.cv-dots li {
+  position: relative;
+  margin: .3rem 0 .35rem;
+  line-height: 1.65;
+}
+.cv-dots li::before {
+  content: "•";               /* 小圆点 */
+  position: absolute;
+  left: -1.1rem;              /* 与 padding-left 对齐 */
+  top: 0;
+  /* 可选：若想更小/更淡，可以加：
+     opacity: .85; font-size: .9em;
+  */
+}
+
+
+/* ========== 移动端响应 ========== */
+@media (max-width: 900px) {
+  .cv-row {
+    grid-template-columns: 1fr;
+    row-gap: .2rem;
+  }
+  .cv-meta {
+    order: -1;
+    display: flex;
+    gap: .8rem;
+    margin-bottom: .2rem;
+  }
+  .cv-col-2 {
+    column-count: 1;
+  }
+}
+
+/* === Project GIF grid & badges === */
+.gif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 12px 0 8px;
+}
+.gif-grid figure { margin: 0; border: 1px solid color-mix(in srgb, currentColor 18%, transparent); border-radius: 10px; overflow: hidden; background: color-mix(in srgb, currentColor 6%, transparent); }
+.gif-grid img, .gif-grid video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.gif-grid figcaption { padding: 8px 10px; font-size: .96rem; opacity: .85; }
+
+.proj-badges { margin: 10px 0 2px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.badge-soft {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  font-size: .92rem;
+  opacity: .96;
+}
+.btn.btn-report {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 1;
+}
+.btn.btn-report:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .gif-grid { grid-template-columns: 1fr; }
+}
+
+/* Single GIF figure (when only one image is provided) */
+.gif-single {
+  margin: 12px 0 8px;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 10px;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.gif-single img, .gif-single video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.gif-single figcaption {
+  padding: 8px 10px;
+  font-size: .96rem;
+  opacity: .85;
+}
+
+
+/* ===== Project 页面：自定义 Hero 标题 + 副标题（括号） + 一句话总结 ===== */
+
+/* 小一号副标题：放在正文第一行，不与主题 H1 冲突 */
+.proj-subtitle{
+  font-size: 2.5rem;
+  line-height: 1.4;
+  margin: -0.4rem 0 0.6rem;
+  color: color-mix(in srgb, currentColor 58%, transparent);
+  font-style: italic; /* 可去掉 */
+}
+
+/* 一句话总结卡片（加大字号 + 斜体加粗） */
+.lede{
+  font-size: 1.5rem;         /* 比之前更大 */
+  font-weight: 700;          /* 加粗 */
+  font-style: italic;        /* 斜体 */
+  color: #333;
+  margin: 12px 0 18px;
+  padding: 12px 16px;
+  border-left: 6px solid #E6E6E6;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+/* --- Project 小标题（含子小标题）：覆盖 h3–h5，命中 Coder 常见容器 --- */
+.single .content h3,
+.single .content h4,
+.single .content h5,
+.post .content h3,
+.post .content h4,
+.post .content h5,
+.content h3,
+.content h4,
+.content h5 {
+  font-family: var(--font-en-serif), var(--font-zh-serif) !important;
+  font-weight: 700 !important;          /* 比正文略重 */
+  font-size: 1.7rem !important;        /* ≈ 18.4px */
+  line-height: 1.6 !important;
+  margin: 0.9em 0 0.55em !important;
+  opacity: .96 !important;
+}
+
+
+/* === 表格：细灰线 + 按内容自动列宽 === */
+table{
+  border-collapse: collapse;
+  table-layout: auto;        /* 关键：按内容分配列宽 */
+  width: auto;               /* 关键：不强制充满整行 */
+  max-width: 100%;
+  font-size: .9em;
+  overflow-x: auto;          /* 防止超出时溢出 */
+  display: block;            /* 允许横向滚动 */
+}
+table th,table td{
+  border: 0.5px solid #E6E6E6; /* 细灰线 */
+  padding: .55em .6em;
+  white-space: nowrap;       /* 列宽由内容决定，不换行挤压 */
+}
+
+/* === Project 公共：通用 figure 样式（不影响简历页） === */
+.single .content figure {
+  margin: 12px 0 18px;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  overflow: hidden;
+}
+.single .content figure img, .single .content figure video { display: block; width: 100%; height: auto; }
+.single .content figure figcaption { padding: 8px 10px; font-size: .96rem; opacity: .85; }
+
+/* 方法区（可选容器）：若渲染时包了 <div class="method-area"> */
+.method-area figure { max-width: 780px; margin: 10px 0 16px; }
+.method-area figcaption { opacity: .85; }
+
+/* 研究区域与数据：与 GIF 网格保持一致的视觉 */
+.single .content .study-area figure,
+.single .content .study-data figure { max-width: 880px; }
+
+/* 研究结果：子小节与图片间距微调 */
+.single .content h3 + figure,
+.single .content h4 + figure { margin-top: 6px; }
+
+/* 避免多图连续出现时贴太近 */
+.single .content figure + figure { margin-top: 10px; }
+
+/* 表格在 Project 页也走“细灰线 + 自动列宽”风格（保底兼容某些主题） */
+.single .content table { width: auto !important; max-width: 100%; }
+
+/* ===== 可选：Safari 旧版对 color-mix 的回退，不改变视觉，仅加兜底 ===== */
+.badge-soft {
+  background: rgba(0,0,0,.03); /* fallback */
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  border-color: rgba(0,0,0,.12); /* fallback */
+  border-color: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+

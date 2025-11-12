@@ -1,0 +1,22 @@
+<!-- DEBUG: project social override (layouts/partials/**/social.html) -->
+{{/* Also emit a Go template comment to be double-sure:
+     if you only see this in page source, override is active. */}}
+{{- $social := site.Params.social -}}
+{{- if $social }}
+<ul class="social list-inline">
+  {{- range $s := $social }}
+  <li class="list-inline-item">
+    {{- $u := printf "%v" $s.url -}}
+    <a href="{{ if or (hasPrefix $u "http") (hasPrefix $u "mailto:") (hasPrefix $u "tel:") }}{{ $u }}{{ else }}{{ $u | relURL }}{{ end }}" target="_blank" rel="noopener" aria-label="{{ $s.name }}">
+      {{- with $s.iconSVG }}
+        <img class="icon-svg" src="{{ . | relURL }}" alt="{{ $s.name }}" />
+      {{- else }}
+        {{- with $s.icon }}
+          <i class="{{ . }}" aria-hidden="true"></i>
+        {{- end }}
+      {{- end }}
+    </a>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}
